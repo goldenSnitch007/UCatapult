@@ -1,0 +1,166 @@
+/* src/components/layout/Footer.css */
+/*
+  This file styles our Footer component. I've aimed for a clean, professional look
+  that's common for modern footers, providing clear information hierarchy.
+  Key features:
+  - Dark background for contrast.
+  - Grid layout for content columns.
+  - Styled links and social media icon placeholders.
+*/
+
+.site-footer-main {
+  background-color: var(--footer-background);
+  color: #b0b0b0; /* Base text color for footer paragraphs */
+  padding: 70px 0 40px 0; /* Top/bottom padding */
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.footer-grid {
+  display: grid;
+  /* Responsive columns: min 240px wide, auto-fit as many as possible */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px; /* Space between columns */
+  margin-bottom: 50px; /* Space before the footer bottom bar */
+}
+
+.footer-column h4 { /* Headings within footer columns */
+  color: var(--light-text); /* White headings */
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 12px; /* Space for the accent underline */
+  font-family: var(--font-secondary); /* Consistent heading font */
+}
+
+.footer-column h4::after { /* Accent underline for column titles */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-gold);
+  border-radius: 1px; /* Slightly rounded underline */
+}
+
+.footer-logo-text { /* Styling for the text logo in the footer */
+    font-size: 1.75rem !important;
+    color: var(--light-text) !important;
+    font-weight: 700 !important;
+    font-family: var(--font-secondary); /* Or specific logo font */
+}
+.footer-logo-text::after { display: none !important; } /* No underline for the logo text */
+
+
+.footer-about p {
+  margin-bottom: 20px;
+  color: #c0c0c0; /* Slightly lighter than base for better readability */
+}
+
+/* Styling for the optional donate button in footer */
+.footer-donate-btn {
+    margin-top: 15px;
+    padding: 10px 22px !important; /* Override global button padding if needed */
+    font-size: 0.9rem !important;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px; /* Spacing between links */
+}
+
+.footer-links a,
+.footer-contact a { /* Styling for general links in footer */
+  color: #d0d0d0; /* Lighter color for links to make them stand out */
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: var(--accent-gold); /* Highlight links with accent color on hover */
+  padding-left: 8px; /* Slight indent on hover */
+}
+
+.footer-contact address {
+  font-style: normal; /* Reset browser default italic for address */
+  margin-bottom: 15px;
+  color: #c0c0c0;
+}
+.footer-contact .contact-info .contact-label { /* For labels like "Email:", "Phone:" */
+    font-weight: 500;
+    color: #a0a0a0; /* Slightly dimmer than the link itself */
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  gap: 18px; /* Space between icons */
+  flex-wrap: wrap; /* Allow icons to wrap on smaller screens if many */
+}
+
+.social-icons a { /* Styling for each social icon link */
+  color: var(--footer-background); /* This will be the color of the text "F", "T" etc. */
+  background-color: #c0c0c0; /* Background of the circle */
+  font-size: 1.1rem; /* Size of the text placeholder, adjust for actual icons */
+  font-weight: bold; /* Make text placeholder stand out */
+  display: inline-flex; /* Use flex for centering icon/text within circle */
+  align-items: center;
+  justify-content: center;
+  width: 42px; /* Size of the circle */
+  height: 42px;
+  text-align: center;
+  border-radius: 50%; /* Make it a circle */
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  background-color: var(--accent-gold);
+  color: var(--dark-text); /* Text color on hover for the icon placeholder */
+  transform: translateY(-3px) scale(1.05); /* Slight lift and scale effect */
+}
+
+/* Footer Bottom Bar (Copyright, Legal Links) */
+.footer-bottom {
+  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid #4a4a4a; /* Separator line */
+  font-size: 0.9rem;
+  color: #999; /* Muted text color for copyright */
+}
+
+.footer-bottom p {
+  margin: 8px 0;
+  color: #999;
+}
+
+.footer-bottom a { /* Links in the bottom bar (Privacy Policy, Terms) */
+  color: #b0b0b0; /* Slightly lighter than copyright text */
+  text-decoration: none; /* No underline by default */
+}
+
+.footer-bottom a:hover {
+  color: var(--accent-gold);
+  text-decoration: underline; /* Underline on hover for clarity */
+}
+
+/* Responsive adjustments for footer columns on smaller screens */
+@media (max-width: 768px) {
+  .footer-grid {
+    /* Columns will stack naturally due to auto-fit, can adjust minmax if needed */
+    gap: 30px; /* Slightly reduce gap on smaller screens */
+  }
+  .footer-column {
+    margin-bottom: 20px; /* Add some margin when columns stack */
+  }
+  .footer-column:last-child {
+    margin-bottom: 0;
+  }
+}

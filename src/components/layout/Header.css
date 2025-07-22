@@ -1,0 +1,244 @@
+/* src/components/layout/Header.css */
+
+.site-header {
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, padding 0.3s ease-in-out;
+  background-color: var(--background-light);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.site-header.is-home {
+  background-color: transparent;
+  border-bottom-color: transparent;
+}
+
+.site-header.header-scrolled {
+  background-color: var(--background-light);
+  box-shadow: var(--shadow-sm);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo .logo-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-family: var(--font-secondary);
+}
+
+.site-logo .logo-image {
+  max-height: 50px; /* Adjust as needed */
+  width: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+.site-header.is-home .site-logo .logo-text {
+  color: var(--light-text);
+}
+
+.site-header.is-home.header-scrolled .site-logo .logo-text {
+    color: var(--primary-blue);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center; /* Align nav items with the donate button */
+}
+
+.nav-links-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 15px;
+  position: relative;
+}
+
+.nav-link {
+  color: var(--dark-text);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.site-header.is-home .nav-link {
+  color: var(--light-text);
+}
+
+.site-header.is-home.header-scrolled .nav-link {
+    color: var(--dark-text);
+}
+
+.nav-link:hover {
+  color: var(--accent-yellow);
+}
+
+.has-dropdown > .nav-link {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--background-light);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+  padding: 10px 0;
+  margin-top: 10px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 10px 20px;
+  color: var(--dark-text);
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-link:hover {
+  background-color: var(--background-off-white);
+  color: var(--primary-blue);
+}
+
+.header-right-controls {
+    display: flex;
+    align-items: center;
+}
+
+.header-donate-button .button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    margin-right: 20px;
+}
+
+/* Mobile Menu */
+.nav-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 22px;
+  position: relative;
+  z-index: 1001;
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--dark-text);
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.site-header.is-home .bar {
+    background-color: var(--light-text);
+}
+
+.site-header.is-home.header-scrolled .bar {
+    background-color: var(--dark-text);
+}
+
+.bar:nth-child(2) {
+  margin: 6px 0;
+}
+
+.nav-menu-toggle.is-active .bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.nav-menu-toggle.is-active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-menu-toggle.is-active .bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@media (max-width: 992px) { /* Adjusted breakpoint */
+  .nav-menu-toggle {
+    display: block;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--background-light);
+    box-shadow: var(--shadow-md);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .main-nav.is-open {
+    max-height: 500px; /* Adjust as needed */
+  }
+
+  .nav-links-list {
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .nav-item {
+    margin: 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav-link {
+    color: var(--dark-text);
+    padding: 15px 20px;
+    display: block;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    padding-left: 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .nav-item.is-open .dropdown-menu {
+    max-height: 500px;
+  }
+
+  .header-donate-button {
+      display: none; /* Hide donate button in mobile view to avoid clutter */
+  }
+}

@@ -1,0 +1,141 @@
+/* src/pages/info/OurCoreValuesPage.css */
+
+.our-core-values-page {
+  background-color: var(--background-pale-mint);
+}
+
+/* Hero Section */
+.values-hero-section {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--light-text);
+  overflow: hidden;
+}
+
+.values-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient);
+  z-index: 1;
+}
+
+.values-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.values-hero-content h1 {
+  font-family: var(--font-secondary);
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--light-text);
+}
+
+.values-hero-content p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  color: var(--light-text);
+}
+
+/* Values Section */
+.values-main-section {
+  padding: 100px 20px;
+}
+
+.values-intro-text {
+  max-width: 800px;
+  margin: 0 auto 80px auto;
+  text-align: center;
+}
+
+.values-intro-text h2 {
+  font-family: var(--font-secondary);
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: var(--dark-text);
+}
+
+.values-intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--medium-text);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.value-card {
+  background: white;
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 5px solid var(--primary-green);
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.value-card .icon {
+  font-size: 3rem;
+  color: var(--accent-orange);
+  margin-bottom: 20px;
+}
+
+.value-card h3 {
+  font-family: var(--font-secondary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--dark-text);
+}
+
+.value-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--medium-text);
+}
+
+/* CTA Section */
+.values-cta-section {
+  padding: 100px 20px;
+  background-color: var(--text-dark-slate-gray);
+  color: var(--light-text);
+  text-align: center;
+}
+
+.values-cta-section h2 {
+  font-family: var(--font-secondary);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--light-text);
+}
+
+.values-cta-section p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  opacity: 0.9;
+}
+
+.cta-buttons .button {
+  margin: 0 10px;
+}

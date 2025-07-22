@@ -1,0 +1,177 @@
+/* src/index.css */
+:root {
+  /* Palette 2: Growth & Energy */
+  --primary-green: #006400;
+  --accent-orange: #FFA500;
+  --text-dark-slate-gray: #2F4F4F;
+  --background-pale-mint: #F0FFF4;
+
+  /* Gradient */
+  --primary-gradient: linear-gradient(135deg, var(--primary-green), #008000);
+
+  /* Text Colors */
+  --dark-text: var(--text-dark-slate-gray);
+  --medium-text: #5a6868;
+  --light-text: #FFFFFF;
+
+  /* Background Colors */
+  --background-light: var(--background-pale-mint);
+  --background-off-white: #e8f5e9;
+  --footer-background: #2C2C2C;
+
+  /* Utility Colors */
+  --border-color: #d0e0d0;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 25px rgba(0,0,0,0.1);
+
+  /* Typography */
+  --font-primary: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-secondary: 'Merriweather', 'Georgia', Times, 'Times New Roman', serif;
+
+  /* Border Radii */
+  --border-radius-sm: 0.2rem;
+  --border-radius-md: 0.3rem;
+  --border-radius-lg: 0.5rem;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@400;500;700&display=swap'); */
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  line-height: 1.7;
+  color: var(--dark-text);
+  background-color: var(--background-light);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.3;
+  font-weight: 700;
+  color: var(--dark-text);
+  font-family: var(--font-secondary);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3rem); margin-bottom: 0.75em; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1em; text-align: center;}
+h3 { font-size: clamp(1.3rem, 3vw, 1.75rem); margin-bottom: 0.5em; }
+
+p {
+  margin-bottom: 1.25em;
+  color: var(--medium-text);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-green);
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #004d00;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: var(--border-radius-md);
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid transparent;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  font-family: var(--font-primary);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.button-primary {
+  background-color: var(--accent-orange);
+  color: var(--light-text) !important;
+  border-color: var(--accent-orange);
+}
+
+.button-primary:hover {
+  background-color: #e69500;
+  border-color: #e69500;
+}
+
+.button-secondary {
+  background-color: var(--light-text);
+  color: var(--dark-text) !important;
+  border: 1px solid var(--border-color);
+}
+
+.button-secondary:hover {
+  background-color: var(--background-off-white);
+  border-color: #adb5bd;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.content-section-light-hp {
+    background-color: var(--background-off-white);
+}
+.content-section-hp {
+    background-color: var(--background-light);
+}
+
+.section-title {
+  color: var(--dark-text);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.15rem;
+  color: var(--medium-text);
+  margin-top: 0;
+  margin-bottom: 50px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 30px;
+  margin-bottom: 25px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}

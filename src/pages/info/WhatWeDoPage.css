@@ -1,0 +1,40 @@
+/* src/pages/info/WhatWeDoPage.css */
+
+.what-we-do-page {
+  padding: 120px 0 80px; /* Add padding to account for fixed header */
+  background-color: var(--background-light);
+}
+
+.what-we-do-page .page-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.what-we-do-page .page-header h1 {
+  font-family: var(--font-secondary);
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  color: var(--primary-blue);
+}
+
+.what-we-do-page .page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.what-we-do-page .mission-statement {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 2em;
+  line-height: 1.6;
+  border-left: 4px solid var(--accent-yellow);
+  padding-left: 20px;
+}
+
+.what-we-do-page .page-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--medium-text);
+  margin-bottom: 1.5em;
+}

@@ -1,0 +1,121 @@
+/* src/pages/info/OurJourneyPage.css */
+
+.our-journey-page {
+  background-color: var(--background-light);
+}
+
+/* Hero Section */
+.journey-hero {
+  padding: 140px 0 100px;
+  text-align: center;
+  background: var(--primary-gradient);
+  color: var(--light-text);
+}
+
+.journey-hero h1 {
+  font-family: var(--font-secondary);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  color: var(--light-text);
+  max-width: 900px;
+  margin: 0 auto 20px;
+}
+
+.journey-hero .hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Timeline Section */
+.journey-timeline-section {
+  padding: 80px 0;
+}
+
+.journey-chapter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+/* Alternate layout for even chapters */
+.journey-chapter:nth-child(even) {
+  grid-template-columns: 1fr 1fr;
+}
+
+.journey-chapter:nth-child(even) .chapter-content {
+  order: 2;
+}
+
+.chapter-content {
+  order: 1;
+}
+
+.chapter-year {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.chapter-title {
+  font-family: var(--font-secondary);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--dark-text);
+  text-align: left;
+}
+
+.chapter-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--medium-text);
+}
+
+.chapter-image-placeholder {
+  height: 400px;
+  background-color: #e8f5e9;
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0c4b0;
+  font-style: italic;
+  font-size: 1.2rem;
+  border: 2px dashed var(--border-color);
+}
+
+/* Conclusion Section */
+.journey-conclusion {
+  padding: 80px 0;
+  text-align: center;
+  background-color: var(--background-off-white);
+}
+
+.journey-conclusion h2 {
+  font-family: var(--font-secondary);
+  font-size: 2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  color: var(--dark-text);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .journey-chapter {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .journey-chapter:nth-child(even) .chapter-content {
+    order: 1; /* Stack content on top of image */
+  }
+
+  .chapter-image-placeholder {
+    height: 300px;
+  }
+}
