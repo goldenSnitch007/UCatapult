@@ -104,11 +104,11 @@
   color: var(--dark-text);
 }
 
-/* Responsive Design */
 @media (max-width: 992px) {
   .journey-chapter {
     grid-template-columns: 1fr;
     gap: 40px;
+    text-align: center;
   }
 
   .journey-chapter:nth-child(even) .chapter-content {
@@ -117,5 +117,43 @@
 
   .chapter-image-placeholder {
     height: 300px;
+  }
+
+  .chapter-year, .chapter-title, .chapter-description {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-hero {
+    padding: 100px 20px;
+  }
+
+  .journey-hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .journey-timeline-section {
+    padding: 60px 20px;
+  }
+
+  .journey-chapter {
+    margin-bottom: 60px;
+  }
+
+  .chapter-year {
+    font-size: 2.5rem;
+  }
+
+  .chapter-title {
+    font-size: 1.5rem;
+  }
+
+  .journey-conclusion {
+    padding: 60px 20px;
+  }
+
+  .journey-conclusion h2 {
+    font-size: 1.5rem;
   }
 }

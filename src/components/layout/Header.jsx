@@ -83,6 +83,9 @@ const Header = () => {
               </ul>
             </li>
             <li className="nav-item"><NavLink to="/school-registration" className="nav-link" onClick={closeMenu}>School Registration</NavLink></li>
+            <li className="nav-item mobile-donate-button">
+                <NavLink to="/donate" className="button button-primary" onClick={closeMenu}>Donate</NavLink>
+            </li>
           </ul>
         </nav>
 
