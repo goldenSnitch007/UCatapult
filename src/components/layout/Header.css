@@ -92,6 +92,25 @@
 
 .has-dropdown > .nav-link {
   cursor: pointer;
+  position: relative;
+}
+
+.dropdown-caret {
+  display: none; /* Hidden by default, shown on mobile */
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid var(--dark-text);
+  transition: transform 0.3s ease;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-item.is-open > .nav-link > .dropdown-caret {
+    transform: translateY(-50%) rotate(180deg);
 }
 
 .dropdown-menu {
@@ -115,6 +134,16 @@
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.dropdown-heading {
+  display: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--medium-text);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .dropdown-link {
@@ -259,8 +288,33 @@
     max-height: 500px;
   }
   
+  .dropdown-heading {
+    display: block;
+  }
+
   .dropdown-link {
-    padding: 15px 20px;
+    padding: 15px 20px 15px 40px; /* Indent dropdown links */
+  }
+
+  .nav-link:hover {
+    color: var(--dark-text);
+  }
+
+  .dropdown-caret {
+    display: inline-block;
+  }
+
+  .nav-item:hover .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+
+  .nav-item.is-open .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    max-height: 500px; /* Already set, but ensure it's here */
   }
 
   .header-donate-button {

@@ -6,6 +6,7 @@ import UcatapultLogo from '../../assets/images/ucatapult logo.png';
 const Header = () => {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState(false);
   const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -15,6 +16,11 @@ const Header = () => {
 
   const toggleNavMenu = () => {
     setIsNavMenuOpen(!isNavMenuOpen);
+    setOpenDropdown(null); // Close dropdowns when closing menu
+  };
+
+  const handleDropdownToggle = (dropdownName) => {
+    setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
   };
 
   useEffect(() => {
@@ -28,6 +34,7 @@ const Header = () => {
           navToggleRef.current && !navToggleRef.current.contains(event.target)
          ) {
         setIsNavMenuOpen(false);
+        setOpenDropdown(null);
       }
     };
 
@@ -42,6 +49,7 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsNavMenuOpen(false);
+    setOpenDropdown(null);
   }
 
   const headerClasses = `site-header ${isHomePage ? 'is-home' : ''} ${isHeaderScrolled ? 'header-scrolled' : ''}`;
@@ -58,31 +66,40 @@ const Header = () => {
 
         <nav className={`main-nav ${isNavMenuOpen ? 'is-open' : ''}`} ref={navPanelRef}>
           <ul className="nav-links-list">
-            <li className="nav-item has-dropdown">
-              <a href="#" className="nav-link">About Us</a>
+            <li className={`nav-item has-dropdown ${openDropdown === 'who-we-are' ? 'is-open' : ''}`}>
+              <div className="nav-link" onClick={() => handleDropdownToggle('who-we-are')}>
+                Who We Are <span className="dropdown-caret"></span>
+              </div>
               <ul className="dropdown-menu">
-                <li><NavLink to="/about/what-we-do" className="dropdown-link" onClick={closeMenu}>What We Do</NavLink></li>
-                <li><NavLink to="/about/how-we-do" className="dropdown-link" onClick={closeMenu}>How We Do</NavLink></li>
-                <li><NavLink to="/about/core-values" className="dropdown-link" onClick={closeMenu}>Our Core Values</NavLink></li>
-                <li><NavLink to="/about/our-journey" className="dropdown-link" onClick={closeMenu}>Our Journey</NavLink></li>
+                <li className="dropdown-heading">Who We Are</li>
+                <li><NavLink to="/who-we-are/our-approach" className="dropdown-link" onClick={closeMenu}>Our Approach</NavLink></li>
+                <li><NavLink to="/who-we-are/our-journey" className="dropdown-link" onClick={closeMenu}>Our Journey</NavLink></li>
+                <li><NavLink to="/who-we-are/people-and-partners" className="dropdown-link" onClick={closeMenu}>People & Partners</NavLink></li>
+                <li><NavLink to="/who-we-are/annual-reports" className="dropdown-link" onClick={closeMenu}>Annual Reports</NavLink></li>
+                <li><NavLink to="/who-we-are/our-core-values" className="dropdown-link" onClick={closeMenu}>Our Core Values</NavLink></li>
               </ul>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="#" className="nav-link">Our Team & Partners</a>
+            <li className={`nav-item has-dropdown ${openDropdown === 'what-we-do' ? 'is-open' : ''}`}>
+              <div className="nav-link" onClick={() => handleDropdownToggle('what-we-do')}>
+                What We Do <span className="dropdown-caret"></span>
+              </div>
               <ul className="dropdown-menu">
-                <li><NavLink to="/team-partners/team" className="dropdown-link" onClick={closeMenu}>Team</NavLink></li>
-                <li><NavLink to="/team-partners/partners" className="dropdown-link" onClick={closeMenu}>Partners</NavLink></li>
+                <li className="dropdown-heading">What We Do</li>
+                <li><NavLink to="/what-we-do/digital-machaan" className="dropdown-link" onClick={closeMenu}>Digital Machaan</NavLink></li>
+                <li><NavLink to="/what-we-do/buddy-program" className="dropdown-link" onClick={closeMenu}>Buddy Program</NavLink></li>
+                <li><NavLink to="/what-we-do/project-cheshta" className="dropdown-link" onClick={closeMenu}>Project Cheshta</NavLink></li>
               </ul>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="#" className="nav-link">Impact</a>
+            <li className={`nav-item has-dropdown ${openDropdown === 'work-with-us' ? 'is-open' : ''}`}>
+              <div className="nav-link" onClick={() => handleDropdownToggle('work-with-us')}>
+                Work With Us <span className="dropdown-caret"></span>
+              </div>
               <ul className="dropdown-menu">
-                <li><NavLink to="/impact/stats" className="dropdown-link" onClick={closeMenu}>Statistics</NavLink></li>
-                <li><NavLink to="/impact/testimonials" className="dropdown-link" onClick={closeMenu}>Testimonials</NavLink></li>
-                <li><NavLink to="/impact/gallery" className="dropdown-link" onClick={closeMenu}>Gallery</NavLink></li>
+                <li className="dropdown-heading">Work With Us</li>
+                <li><NavLink to="/work-with-us/join-our-team" className="dropdown-link" onClick={closeMenu}>Join Our Team</NavLink></li>
+                <li><NavLink to="/work-with-us/contact-us" className="dropdown-link" onClick={closeMenu}>Contact Us</NavLink></li>
               </ul>
             </li>
-            <li className="nav-item"><NavLink to="/school-registration" className="nav-link" onClick={closeMenu}>School Registration</NavLink></li>
             <li className="nav-item mobile-donate-button">
                 <NavLink to="/donate" className="button button-primary" onClick={closeMenu}>Donate</NavLink>
             </li>
